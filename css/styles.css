@@ -1,0 +1,1553 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Color Variables */
+:root {
+    --crimson-red: #DC143C;
+    --royal-blue: #4169E1;
+    --maroon: #800000;
+    --orange: #FF8C00;
+    --light-gray: #f8f9fa;
+    --dark-gray: #2c3e50;
+    --white: #ffffff;
+}
+
+/* Top Notification Bar */
+.top-bar {
+    background: var(--royal-blue);
+    color: var(--white);
+    padding: 10px 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 45px;
+}
+
+.ticker-container {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-content {
+    display: inline-block;
+    animation: scroll-left 30s linear infinite;
+    padding-left: 100%;
+}
+
+.ticker-content:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    0% { transform: translate3d(100%, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+.apply-now-btn {
+    background: var(--orange);
+    color: var(--white);
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-right: 20px;
+    transition: all 0.3s;
+}
+
+.apply-now-btn:hover {
+    background: #FF7F00;
+    transform: translateY(-2px);
+}
+
+/* Header Section */
+.header {
+    background: linear-gradient(rgba(65, 105, 225, 0.8), rgba(220, 20, 60, 0.7)), url('background_image.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+.college-logo {
+    flex-shrink: 0;
+}
+
+.college-logo .logo-img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.college-info {
+    flex: 1;
+    text-align: center;
+}
+
+.college-name {
+    margin: 0;
+    line-height: 1.2;
+}
+
+.dhanalakshmi {
+    display: block;
+    color: navy;
+    font-size: 3.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.college-type {
+    display: block;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.college-location {
+    color: white;
+    font-size: 1rem;
+    margin-top: 5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.accreditation-logos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.accred-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.accred-logo:hover {
+    transform: scale(1.1);
+}
+
+.header-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: flex-end;
+}
+
+.header-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.counselling-btn {
+    background: linear-gradient(135deg, var(--crimson-red), #B91C3C);
+    color: var(--white);
+}
+
+.counselling-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+}
+
+.admission-btn {
+    background: linear-gradient(135deg, var(--royal-blue), #3B82F6);
+    color: var(--white);
+}
+
+.admission-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(65, 105, 225, 0.3);
+}
+
+.tour-btn {
+    background: linear-gradient(135deg, var(--orange), #F59E0B);
+    color: var(--white);
+}
+
+.tour-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.header-btn i {
+    font-size: 0.9rem;
+}
+
+/* Main Navigation */
+.main-nav {
+    background: var(--dark-gray);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    display: block;
+    color: var(--white);
+    text-decoration: none;
+    padding: 15px 12px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    white-space: nowrap;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    background: var(--royal-blue);
+    color: var(--white);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Slider Section */
+.hero-slider {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+.slider-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: white;
+    transform: scale(1.2);
+}
+
+.indicator:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* Announcements & Events */
+.announcements-events {
+    padding: 60px 0;
+    background: var(--light-gray);
+}
+
+.announcements-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.upcoming-events, .news-achievements {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.upcoming-events h3, .news-achievements h3 {
+    color: var(--dark-gray);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.events-scroll, .news-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.event-item, .news-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+.event-date {
+    color: var(--royal-blue);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.event-title, .news-title {
+    display: block;
+    margin-top: 0.5rem;
+    color: var(--dark-gray);
+    font-weight: 500;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--royal-blue);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: #365AC7;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(65, 105, 225, 0.3);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--royal-blue);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--royal-blue);
+    border: 2px solid var(--royal-blue);
+}
+
+.btn-outline:hover {
+    background: var(--royal-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Section Styles */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--dark-gray);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: var(--royal-blue);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* About Section */
+.about {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+.accreditation-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.highlight-badge {
+    background: var(--royal-blue);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Departments Section */
+.departments {
+    padding: 100px 0;
+    background: var(--light-gray);
+}
+
+.departments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.department-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.department-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.department-card i {
+    font-size: 3rem;
+    color: var(--royal-blue);
+    margin-bottom: 1rem;
+}
+
+.department-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.department-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Placements Section */
+.placements {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.placement-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.placement-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.placement-stats .stat {
+    text-align: center;
+    flex: 1;
+}
+
+.placement-stats .stat h3 {
+    font-size: 2.5rem;
+    color: var(--crimson-red);
+    font-weight: 700;
+}
+
+.placement-stats .dhanalakshmi {
+    color: white;
+    font-weight: 700;
+}
+
+.placement-stats .stat p {
+    color: #666;
+    font-weight: 500;
+}
+
+.placement-stories h3 {
+    color: var(--dark-gray);
+    margin-bottom: 1rem;
+}
+
+.story {
+    background: var(--light-gray);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.company-image {
+    margin-bottom: 2rem;
+}
+
+.recruiters-img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.recruiters-img:hover {
+    transform: scale(1.02);
+}
+
+/* Facilities Section */
+.facilities {
+    padding: 100px 0;
+    background: var(--light-gray);
+}
+
+.facilities-carousel {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.facility-slide {
+    display: none;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.facility-slide.active {
+    display: block;
+}
+
+.facility-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.facility-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: var(--white);
+    padding: 2rem;
+}
+
+.facility-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Cells Section */
+.cells {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.cells-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.cell-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    border-top: 4px solid var(--royal-blue);
+    transition: transform 0.3s;
+}
+
+.cell-card:hover {
+    transform: translateY(-5px);
+}
+
+.cell-card i {
+    font-size: 2.5rem;
+    color: var(--royal-blue);
+    margin-bottom: 1rem;
+}
+
+.cell-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--dark-gray);
+}
+
+.cell-card p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* Events Section */
+.events {
+    padding: 100px 0;
+    background: var(--light-gray);
+    overflow: hidden;
+}
+
+.events-slider-container {
+    margin-top: 3rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.events-slider {
+    display: flex;
+    gap: 2rem;
+    animation: slideLeftInfinite 40s linear infinite;
+    width: max-content;
+}
+
+.events-slider:hover {
+    animation-play-state: paused;
+}
+
+@keyframes slideLeftInfinite {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.event-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    min-width: 350px;
+    max-width: 350px;
+    flex-shrink: 0;
+}
+
+.event-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+.event-header {
+    background: linear-gradient(135deg, var(--royal-blue), var(--crimson-red));
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: var(--white);
+}
+
+.event-date-badge {
+    text-align: center;
+}
+
+.date-day {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.date-month {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0.2rem 0;
+}
+
+.date-year {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.9;
+}
+
+.event-category {
+    background: rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.event-body {
+    padding: 2rem;
+}
+
+.event-body h3 {
+    color: var(--dark-gray);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.event-body p {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.event-details {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.event-duration,
+.event-type {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--royal-blue);
+    font-weight: 500;
+}
+
+.event-duration i,
+.event-type i {
+    font-size: 0.8rem;
+}
+
+.event-footer {
+    padding: 0 2rem 2rem;
+}
+
+.event-footer .btn {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Useful Links */
+.useful-links {
+    padding: 60px 0;
+    background: var(--white);
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.link-item {
+    background: var(--light-gray);
+    color: var(--dark-gray);
+    text-decoration: none;
+    padding: 1.5rem;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.link-item:hover {
+    background: var(--royal-blue);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+
+/* Contact Section */
+.contact {
+    padding: 100px 0;
+    background: var(--light-gray);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    color: var(--dark-gray);
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    gap: 1rem;
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--royal-blue);
+    margin-top: 0.2rem;
+    min-width: 24px;
+}
+
+.contact-item h4 {
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.contact-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.contact-map h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--dark-gray);
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+/* Footer */
+.footer {
+    background: var(--dark-gray);
+    color: var(--white);
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+    margin-bottom: 1rem;
+    color: var(--royal-blue);
+    font-size: 1.3rem;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-section a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-section a:hover {
+    color: var(--royal-blue);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background: #34495e;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    font-size: 1.2rem;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--royal-blue);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid #34495e;
+    color: #bdc3c7;
+}
+
+.footer-bottom p {
+    margin-bottom: 0.5rem;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Responsive Design */
+
+/* Tablet Styles */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .nav-menu a {
+        padding: 12px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .college-name-hero {
+        font-size: 2.8rem;
+    }
+    
+    .dhanalakshmi {
+        font-size: 1.8rem;
+    }
+    
+    .college-type {
+        font-size: 1.5rem;
+    }
+    
+    .departments-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .recruiters-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .facility-slide img {
+        height: 300px;
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    /* Mobile Header */
+    .top-bar {
+        padding: 8px 0;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .ticker-content {
+        font-size: 0.9rem;
+        animation-duration: 25s;
+    }
+    
+    .apply-now-btn {
+        padding: 6px 15px;
+        font-size: 0.9rem;
+        margin-right: 0;
+    }
+    
+    .header {
+        padding: 15px 0;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .college-logo .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .quick-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .quick-links a {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+    
+    /* Mobile Navigation */
+    .main-nav {
+        position: relative;
+    }
+    
+    .hamburger {
+        display: flex;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1001;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--dark-gray);
+        z-index: 1000;
+        padding-top: 80px;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-menu a {
+        padding: 18px 25px;
+        border-bottom: 1px solid #34495e;
+        font-size: 1.1rem;
+        text-align: left;
+    }
+    
+    /* Mobile Hero */
+    .hero {
+        height: 70vh;
+        padding: 0 20px;
+    }
+    
+    .college-name-hero {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .accreditation {
+        font-size: 1.4rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .btn {
+        min-width: 200px;
+        padding: 14px 30px;
+        font-size: 1.1rem;
+    }
+    
+    /* Mobile Sections */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .announcements-events,
+    .about,
+    .departments,
+    .placements,
+    .facilities,
+    .cells,
+    .events,
+    .contact {
+        padding: 60px 0;
+    }
+    
+    .announcements-grid,
+    .about-content,
+    .placement-content,
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .departments-grid,
+    .cells-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .department-card,
+    .cell-card {
+        padding: 1.5rem;
+    }
+    
+    /* Mobile Events Timeline */
+    .event-timeline-item {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+    }
+    
+    .event-date {
+        align-self: stretch;
+        text-align: center;
+    }
+    
+    .event-content {
+        padding: 1.5rem;
+    }
+    
+    /* Mobile Placements */
+    .recruiters-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .recruiter-logo {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .placement-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .placement-stats .stat {
+        padding: 1rem;
+        background: var(--light-gray);
+        border-radius: 10px;
+    }
+    
+    /* Mobile Facilities */
+    .facility-slide img {
+        height: 250px;
+    }
+    
+    .facility-info {
+        padding: 1.5rem;
+    }
+    
+    .facility-info h3 {
+        font-size: 1.4rem;
+    }
+    
+    /* Mobile Contact */
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.5rem;
+    }
+    
+    .contact-item i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Mobile Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Small Mobile Styles */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+    
+    /* Small Mobile Header */
+    .dhanalakshmi {
+        font-size: 1.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .college-type {
+        font-size: 1.1rem;
+    }
+    
+    .college-location {
+        font-size: 0.9rem;
+    }
+    
+    /* Small Mobile Hero */
+    .hero {
+        height: 60vh;
+        padding: 0 15px;
+    }
+    
+    .college-name-hero {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .accreditation {
+        font-size: 1.2rem;
+    }
+    
+    .hero-buttons {
+        gap: 0.8rem;
+    }
+    
+    .btn {
+        min-width: 180px;
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    /* Small Mobile Sections */
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .announcements-events,
+    .about,
+    .departments,
+    .placements,
+    .facilities,
+    .cells,
+    .events,
+    .contact {
+        padding: 40px 0;
+    }
+    
+    .department-card,
+    .cell-card {
+        padding: 1.2rem;
+    }
+    
+    .department-card h3,
+    .cell-card h3 {
+        font-size: 1.2rem;
+    }
+    
+    .department-card i,
+    .cell-card i {
+        font-size: 2.2rem;
+    }
+    
+    /* Small Mobile Grids */
+    .links-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .link-item {
+        padding: 1.2rem;
+        font-size: 0.95rem;
+    }
+    
+    .recruiters-grid {
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    
+    .recruiter-logo {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Small Mobile Events */
+    .event-date {
+        padding: 0.8rem;
+        min-width: 100px;
+    }
+    
+    .event-date .day {
+        font-size: 1.5rem;
+    }
+    
+    .event-content {
+        padding: 1.2rem;
+    }
+    
+    .event-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Small Mobile Facilities */
+    .facility-slide img {
+        height: 200px;
+    }
+    
+    .facility-info {
+        padding: 1.2rem;
+    }
+    
+    .facility-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Small Mobile About */
+    .about-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .accreditation-highlights {
+        justify-content: center;
+    }
+    
+    .highlight-badge {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    .header-btn {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.8rem;
+    }
+    
+    /* Small Mobile Placements */
+    .placement-stats .stat h3 {
+        font-size: 2rem;
+    }
+    
+    .story {
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Small Mobile Contact */
+    .contact-item h4 {
+        font-size: 1rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Extra Small Mobile Styles */
+@media (max-width: 360px) {
+    .college-name-hero {
+        font-size: 1.4rem;
+    }
+    
+    .accreditation {
+        font-size: 1.1rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .btn {
+        min-width: 160px;
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .nav-menu a {
+        padding: 15px 20px;
+        font-size: 1rem;
+    }
+    
+    .hero {
+        height: 50vh;
+    }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+}
+
+.whatsapp-float i {
+    color: white;
+    font-size: 28px;
+}
+
+.whatsapp-float:hover i {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}

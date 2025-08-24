@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSCET - Dhanalakshmi Srinivasan College of Engineering & Technology</title>
+    <meta name="description" content="Official website of Dhanalakshmi Srinivasan College of Engineering & Technology - 25 Years of Excellence | NAAC A+ | AICTE Approved">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Notification Bar -->
+    <div class="top-bar">
+        <div class="ticker-container">
+            <div class="ticker-content">
+                <span>ADMISSIONS OPEN FOR 2025-26 || To Apply Online <strong>CLICK HERE</strong> || For Admission Contact: 70944 66503, 9499051266 & 7824809192</span>
+            </div>
+        </div>
+        <a href="#admission" class="apply-now-btn">Apply Now</a>
+    </div>
+
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="college-logo">
+                    <img src="logo/DSCET-LOGO.png" alt="DSCET Logo" class="logo-img">
+                </div>
+                <div class="college-info">
+                    <h1 class="college-name">
+                        <span class="dhanalakshmi">Dhanalakshmi Srinivasan</span>
+                        <span class="college-type">College of Engineering & Technology</span>
+                    </h1>
+                    <p class="college-location">ECR, Mamallapuram, Chengalpattu District</p>
+                </div>
+                <div class="accreditation-logos">
+                    <img src="logo/A (1).png" alt="NAAC A+ Grade" class="accred-logo">
+                    <img src="logo/iso_logo.png" alt="ISO Certification" class="accred-logo">
+                </div>
+                <div class="header-buttons">
+                    <a href="#counselling" class="header-btn counselling-btn">
+                        <i class="fas fa-graduation-cap"></i>
+                        Counselling Code 1322
+                    </a>
+                    <a href="#admission" class="header-btn admission-btn">
+                        <i class="fas fa-door-open"></i>
+                        Admission Open for 2025-26
+                    </a>
+                    <a href="#virtual-tour" class="header-btn tour-btn">
+                        <i class="fas fa-vr-cardboard"></i>
+                        360° Virtual Tour
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <!-- Hero Slider Section -->
+    <section id="home" class="hero-slider">
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="background_image.png" alt="DSCET Campus View 1">
+            </div>
+            <div class="slide">
+                <img src="background_image.png" alt="DSCET Campus View 2">
+            </div>
+            <div class="slide">
+                <img src="background_image.png" alt="DSCET Campus View 3">
+            </div>
+            <div class="slide">
+                <img src="background_image.png" alt="DSCET Campus View 4">
+            </div>
+            <div class="slide">
+                <img src="background_image.png" alt="DSCET Campus View 5">
+            </div>
+            <div class="slide">
+                <img src="background_image.png" alt="DSCET Campus View 6">
+            </div>
+            <div class="slide">
+                <img src="background_image.png" alt="DSCET Campus View 7">
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <button class="slider-btn prev-btn" onclick="changeSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn next-btn" onclick="changeSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Slide Indicators -->
+            <div class="slider-indicators">
+                <span class="indicator active" onclick="currentSlide(1)"></span>
+                <span class="indicator" onclick="currentSlide(2)"></span>
+                <span class="indicator" onclick="currentSlide(3)"></span>
+                <span class="indicator" onclick="currentSlide(4)"></span>
+                <span class="indicator" onclick="currentSlide(5)"></span>
+                <span class="indicator" onclick="currentSlide(6)"></span>
+                <span class="indicator" onclick="currentSlide(7)"></span>
+            </div>
+        </div>
+    </section>
+    
+    <nav class="main-nav">
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#admission">Admissions</a></li>
+                <li><a href="#academics">Academics</a></li>
+                <li><a href="#departments">Departments</a></li>
+                <li><a href="#affiliation">Affiliation & Accreditation</a></li>
+                <li><a href="#library">Library</a></li>
+                <li><a href="#campus-life">Campus Life</a></li>
+                <li><a href="#cells">Cells</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#placement">Training & Placement</a></li>
+                <li><a href="#iqac">IQAC</a></li>
+                <li><a href="#alumni">Alumni</a></li>
+                <li><a href="#idea-lab">AICTE IDEA Lab</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+    <!-- Announcements & Upcoming Events -->
+    <!-- <section class="announcements-events">
+        <div class="container">
+            <div class="announcements-grid">
+                <div class="upcoming-events">
+                    <h3><i class="fas fa-calendar-alt"></i> Upcoming Events</h3>
+                    <div class="events-scroll">
+                        <div class="event-item">
+                            <span class="event-date">20-21 Mar 2025</span>
+                            <span class="event-title">Two Days Workshop on Biomedical Innovation</span>
+                        </div>
+                        <div class="event-item">
+                            <span class="event-date">15 Apr 2025</span>
+                            <span class="event-title">Industry Connect Program</span>
+                        </div>
+                        <div class="event-item">
+                            <span class="event-date">25 Apr 2025</span>
+                            <span class="event-title">Annual Technical Symposium</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-achievements">
+                    <h3><i class="fas fa-trophy"></i> News & Achievements</h3>
+                    <div class="news-scroll">
+                        <div class="news-item">
+                            <span class="news-title">Deloitte offers 8.5 LPA package to CSE students</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-title">Rinex Technologies offers 5.2 LPA to ECE graduates</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-title">MOU signed with leading tech companies</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-title">Excellence Award for Innovation in Engineering Education</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- About DSCET Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About DSCET</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Dhanalakshmi Srinivasan College of Engineering & Technology</h3>
+                    <p>DSCET stands as a beacon of excellence in technical education, committed to nurturing innovative minds and shaping future engineers. Located on the scenic East Coast Road in Mamallapuram, our institution has been at the forefront of engineering education, research, and innovation.</p>
+                    <p>Our college is dedicated to providing world-class education with a perfect blend of theoretical knowledge and practical application, ensuring our graduates are industry-ready and globally competitive.</p>
+                    <div class="accreditation-highlights">
+                        <span class="highlight-badge">25 Years of Excellence</span>
+                        <span class="highlight-badge">NAAC A+</span>
+                        <span class="highlight-badge">AICTE Approved</span>
+                        <span class="highlight-badge">Anna University Affiliated</span>
+                        <span class="highlight-badge">NBA Accredited</span>
+                    </div>
+                    <a href="#about-full" class="btn btn-outline">Read More</a>
+                </div>
+                <div class="about-image">
+                    <img src="background_image.png" alt="DSCET Campus">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Placements Section -->
+    <section id="placement" class="placements">
+        <div class="container">
+            <h2 class="section-title">Placements</h2>
+            <div class="placement-content">
+                <div class="placement-highlights">
+                    <div class="placement-stats">
+                        <div class="stat">
+                            <h3>95%</h3>
+                            <p>Placement Rate</p>
+                        </div>
+                        <div class="stat">
+                            <h3>8.5 LPA</h3>
+                            <p>Highest Package</p>
+                        </div>
+                        <div class="stat">
+                            <h3>200+</h3>
+                            <p>Companies</p>
+                        </div>
+                    </div>
+                    <div class="placement-stories">
+                        <h3>Success Stories</h3>
+                        <div class="story">
+                            <p><strong>Deloitte</strong> - 8.5 LPA package to CSE students</p>
+                        </div>
+                        <div class="story">
+                            <p><strong>Rinex Technologies</strong> - 5.2 LPA to ECE graduates</p>
+                        </div>
+                        <div class="story">
+                            <p><strong>TCS, Infosys, Wipro</strong> - Mass recruitment drives</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="top-recruiters">
+                    <h3>Top Recruiters</h3>
+                    <div class="company-image">
+                        <img src="company_img.jpg" alt="Top Recruiting Companies" class="recruiters-img">
+                    </div>
+                    <a href="#placement-report" class="btn btn-primary">View Placement Report</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities & Campus Life Section -->
+    <section id="facilities" class="facilities">
+        <div class="container">
+            <h2 class="section-title">Facilities & Campus Life</h2>
+            <div class="facilities-carousel">
+                <div class="facility-slide active">
+                    <img src="background_image.png" alt="Library">
+                    <div class="facility-info">
+                        <h3>Central Library</h3>
+                        <p>State-of-the-art library with 50,000+ books, digital resources, and research facilities</p>
+                    </div>
+                </div>
+                <div class="facility-slide">
+                    <img src="background_image.png" alt="Hostel">
+                    <div class="facility-info">
+                        <h3>Hostel Accommodation</h3>
+                        <p>Comfortable and secure hostel facilities for both boys and girls with modern amenities</p>
+                    </div>
+                </div>
+                <div class="facility-slide">
+                    <img src="background_image.png" alt="Labs">
+                    <div class="facility-info">
+                        <h3>Advanced Laboratories</h3>
+                        <p>Well-equipped labs with latest technology for hands-on learning and research</p>
+                    </div>
+                </div>
+                <div class="facility-slide">
+                    <img src="background_image.png" alt="Sports">
+                    <div class="facility-info">
+                        <h3>Sports Complex</h3>
+                        <p>Comprehensive sports facilities including indoor and outdoor games</p>
+                    </div>
+                </div>
+                <div class="facility-slide">
+                    <img src="background_image.png" alt="Cafeteria">
+                    <div class="facility-info">
+                        <h3>Cafeteria</h3>
+                        <p>Hygienic food court serving nutritious meals and snacks</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#facilities-full" class="btn btn-primary">Explore Facilities</a>
+        </div>
+    </section>
+
+    <!-- Cells & Committees Section -->
+    <section id="cells" class="cells">
+        <div class="container">
+            <h2 class="section-title">Cells & Committees</h2>
+            <div class="cells-grid">
+                <div class="cell-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Anti-Ragging Cell</h3>
+                    <p>Ensuring a safe and harassment-free environment for all students</p>
+                    <a href="#anti-ragging" class="btn btn-outline">Read More →</a>
+                </div>
+                <div class="cell-card">
+                    <i class="fas fa-female"></i>
+                    <h3>Women's Cell</h3>
+                    <p>Empowering women students and addressing gender-related concerns</p>
+                    <a href="#womens-cell" class="btn btn-outline">Read More →</a>
+                </div>
+                <div class="cell-card">
+                    <i class="fas fa-award"></i>
+                    <h3>IQAC</h3>
+                    <p>Internal Quality Assurance Cell for maintaining academic excellence</p>
+                    <a href="#iqac" class="btn btn-outline">Read More →</a>
+                </div>
+                <div class="cell-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>NSS</h3>
+                    <p>National Service Scheme promoting community service and social awareness</p>
+                    <a href="#nss" class="btn btn-outline">Read More →</a>
+                </div>
+                <div class="cell-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovation Cell</h3>
+                    <p>Fostering innovation, entrepreneurship, and startup culture</p>
+                    <a href="#innovation" class="btn btn-outline">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events / Workshops / Conferences Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <h2 class="section-title">Events / Workshops / Conferences</h2>
+            <div class="events-slider-container">
+                <div class="events-slider">
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">20-21</span>
+                                <span class="date-month">MAR</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Workshop</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Two Days Workshop on Biomedical Innovation</h3>
+                            <p>Comprehensive workshop covering latest trends in biomedical engineering and healthcare technology</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> 2 Days</span>
+                                <span class="event-type"><i class="fas fa-users"></i> Workshop</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#biomedical-workshop" class="btn btn-primary">Register Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">15</span>
+                                <span class="date-month">APR</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Program</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Industry Connect Program</h3>
+                            <p>Bridging the gap between academia and industry through expert sessions and networking</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> Full Day</span>
+                                <span class="event-type"><i class="fas fa-handshake"></i> Networking</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#industry-connect" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">25</span>
+                                <span class="date-month">APR</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Conference</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Annual Technical Symposium</h3>
+                            <p>Showcase of student projects, technical presentations, and innovation exhibitions</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> 2 Days</span>
+                                <span class="event-type"><i class="fas fa-trophy"></i> Competition</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#tech-symposium" class="btn btn-primary">Participate</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">05</span>
+                                <span class="date-month">MAY</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Seminar</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>AI & Machine Learning Summit</h3>
+                            <p>Expert talks on artificial intelligence, machine learning applications in engineering</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> Full Day</span>
+                                <span class="event-type"><i class="fas fa-robot"></i> AI/ML</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#ai-summit" class="btn btn-primary">Register</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">12</span>
+                                <span class="date-month">MAY</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Workshop</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Robotics & Automation Workshop</h3>
+                            <p>Hands-on experience with robotics, automation systems and industrial applications</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> 3 Days</span>
+                                <span class="event-type"><i class="fas fa-cogs"></i> Robotics</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#robotics-workshop" class="btn btn-primary">Join Now</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">18</span>
+                                <span class="date-month">MAY</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Conference</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Sustainable Engineering Conference</h3>
+                            <p>Focus on green technology, renewable energy and sustainable engineering practices</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> 2 Days</span>
+                                <span class="event-type"><i class="fas fa-leaf"></i> Green Tech</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#sustainable-conf" class="btn btn-primary">Attend</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">28</span>
+                                <span class="date-month">MAY</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Hackathon</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>DSCET Innovation Hackathon</h3>
+                            <p>48-hour coding marathon to solve real-world problems with innovative solutions</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> 48 Hours</span>
+                                <span class="event-type"><i class="fas fa-code"></i> Coding</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#hackathon" class="btn btn-primary">Register Team</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">08</span>
+                                <span class="date-month">JUN</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Workshop</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Cybersecurity & Ethical Hacking</h3>
+                            <p>Learn cybersecurity fundamentals, ethical hacking techniques and network security</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> 5 Days</span>
+                                <span class="event-type"><i class="fas fa-shield-alt"></i> Security</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#cybersec-workshop" class="btn btn-primary">Enroll</a>
+                        </div>
+                    </div>
+
+                    <!-- Duplicate events for seamless infinite loop -->
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">20-21</span>
+                                <span class="date-month">MAR</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Workshop</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Two Days Workshop on Biomedical Innovation</h3>
+                            <p>Comprehensive workshop covering latest trends in biomedical engineering and healthcare technology</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> 2 Days</span>
+                                <span class="event-type"><i class="fas fa-users"></i> Workshop</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#biomedical-workshop" class="btn btn-primary">Register Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">15</span>
+                                <span class="date-month">APR</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Program</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Industry Connect Program</h3>
+                            <p>Bridging the gap between academia and industry through expert sessions and networking</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> Full Day</span>
+                                <span class="event-type"><i class="fas fa-handshake"></i> Networking</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#industry-connect" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">25</span>
+                                <span class="date-month">APR</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Conference</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>Annual Technical Symposium</h3>
+                            <p>Showcase of student projects, technical presentations, and innovation exhibitions</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> 2 Days</span>
+                                <span class="event-type"><i class="fas fa-trophy"></i> Competition</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#tech-symposium" class="btn btn-primary">Participate</a>
+                        </div>
+                    </div>
+
+                    <div class="event-card">
+                        <div class="event-header">
+                            <div class="event-date-badge">
+                                <span class="date-day">05</span>
+                                <span class="date-month">MAY</span>
+                                <span class="date-year">2025</span>
+                            </div>
+                            <div class="event-category">Seminar</div>
+                        </div>
+                        <div class="event-body">
+                            <h3>AI & Machine Learning Summit</h3>
+                            <p>Expert talks on artificial intelligence, machine learning applications in engineering</p>
+                            <div class="event-details">
+                                <span class="event-duration"><i class="fas fa-clock"></i> Full Day</span>
+                                <span class="event-type"><i class="fas fa-robot"></i> AI/ML</span>
+                            </div>
+                        </div>
+                        <div class="event-footer">
+                            <a href="#ai-summit" class="btn btn-primary">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Information Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Address</h4>
+                            <p>East Coast Road, Mamallapuram, Chennai - 603104</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>044-27442844 / 044-27443844</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>dscet@yahoo.co.in</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <h3>Location</h3>
+                    <div class="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.0!2d80.1!3d12.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDM2JzAwLjAiTiA4MMKwMDYnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                            width="100%" 
+                            height="300" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DSCET</h3>
+                    <p>Dhanalakshmi Srinivasan College of Engineering & Technology</p>
+                    <p>NAAC A+ | AICTE Approved | Anna University Affiliated</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#admission">Admissions</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#placement">Placements</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DSCET. All rights reserved.</p>
+                <p>Designed & Maintained by DSCET Web Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/917824809192" target="_blank" class="whatsapp-float" title="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
