@@ -1321,6 +1321,13 @@ margin-top: 3rem;
     .header-buttons {
         justify-self: center;
         align-items: center;
+        /* 2x2 grid for mobile */
+        display: grid;
+        grid-template-columns: repeat(2, minmax(140px, 1fr));
+        grid-auto-rows: 1fr; /* equal row heights */
+        gap: 0.8rem 1rem;
+        justify-items: stretch;
+        align-items: stretch;
     }
     
     .quick-links {
@@ -1332,6 +1339,38 @@ margin-top: 3rem;
     .quick-links a {
         padding: 6px 12px;
         font-size: 0.9rem;
+    }
+
+    /* Ensure buttons fill their grid cell on mobile */
+    .header-btn {
+        min-width: 0;
+        width: 100%;
+        justify-content: center;
+        height: 100%; /* fill grid cell height */
+    }
+
+    /* Normalize icon spacing so text alignment doesn't affect size */
+    .header-btn i {
+        width: 1.2em;
+        text-align: center;
+    }
+
+    /* Mobile: larger sub-title, compact location, single-line */
+    .college-type {
+        font-size: 2.2rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    .college-location {
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        margin-top: 2px;
     }
     
     /* Mobile Navigation */
@@ -1547,13 +1586,27 @@ margin-top: 3rem;
     }
     
     .college-type {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    /* Keep 2 columns on very small phones but allow tighter min width */
+    .header-buttons {
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        gap: 0.7rem 0.8rem;
     }
     
     .college-location {
-        font-size: 1rem;
+        font-size: 0.85rem;
         color: #666;
         margin: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
     }
 
     .college-accreditation {
