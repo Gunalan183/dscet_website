@@ -362,6 +362,82 @@ body {
     transition: 0.3s;
 }
 
+/* Dropdown Menu Styles */
+.nav-menu li {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    z-index: 1000;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+}
+
+.nav-menu li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    display: block;
+    padding: 0;
+    position: relative;
+}
+
+.submenu li a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.submenu li a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: var(--primary);
+}
+
+/* Sub-submenu styles */
+.sub-submenu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    min-width: 350px;
+    z-index: 1001;
+    border-radius: 4px;
+    backdrop-filter: blur(10px);
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.submenu li:hover .sub-submenu {
+    display: block;
+}
+
+.sub-submenu li a {
+    padding: 8px 15px;
+    font-size: 0.9em;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sub-submenu li:last-child a {
+    border-bottom: none;
+}
+
+.arrow {
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
 /* Hero Slider Section */
 .hero-slider {
     position: relative;
@@ -1317,6 +1393,140 @@ margin-top: 3rem;
     }
 }
 
+/* Mobile Sidebar Navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        flex-direction: column;
+        padding: 80px 0 20px 0;
+        transition: right 0.3s ease;
+        z-index: 9999;
+        overflow-y: auto;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-menu li a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        font-size: 1rem;
+        border-radius: 0;
+    }
+    
+    .nav-menu li a:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 10000;
+        position: relative;
+    }
+    
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    /* Mobile Submenu Styles */
+    .submenu {
+        position: static;
+        display: none;
+        background: rgba(0, 0, 0, 0.2);
+        box-shadow: none;
+        border-radius: 0;
+        backdrop-filter: none;
+    }
+    
+    .submenu.active {
+        display: block;
+    }
+    
+    .submenu li a {
+        padding: 12px 40px;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .sub-submenu {
+        position: static;
+        display: none;
+        background: rgba(0, 0, 0, 0.3);
+        box-shadow: none;
+        border-radius: 0;
+        backdrop-filter: none;
+        max-height: none;
+        overflow: visible;
+    }
+    
+    .sub-submenu.active {
+        display: block;
+    }
+    
+    .sub-submenu li a {
+        padding: 10px 60px;
+        font-size: 0.85rem;
+    }
+    
+    /* Mobile Header Buttons Layout */
+    .header-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 10px;
+        max-width: 100%;
+    }
+    
+    .header-buttons .header-btn {
+        width: 100%;
+        min-width: auto;
+        font-size: 0.8rem;
+        padding: 8px 12px;
+    }
+    
+    .header-buttons .header-btn:nth-child(1),
+    .header-buttons .header-btn:nth-child(2) {
+        grid-row: 1;
+    }
+    
+    .header-buttons .header-btn:nth-child(3),
+    .header-buttons .header-btn:nth-child(4) {
+        grid-row: 2;
+    }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     /* Mobile Header */
@@ -1415,250 +1625,6 @@ margin-top: 3rem;
     }
 
     .college-location {
-        font-size: 0.9rem;
-        margin-top: 6px;
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-    }
-    
-    .main-nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(17, 25, 40, 0.35);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        height: 60px; /* ensure visible bar for hamburger */
-        display: flex;
-        align-items: center;
-    }
-    
-    .hamburger {
-        display: flex;
-        position: fixed;
-        top: 12px;
-        right: 16px;
-        transform: none;
-        z-index: 2000; /* above off-canvas menu */
-    }
-    
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        width: 100%;
-        background: var(--dark-gray);
-        z-index: 1000;
-        padding-top: 80px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    }
-    
-    .nav-menu.active {
-        transform: translateX(0);
-    }
-    
-    .nav-menu a {
-        padding: 18px 25px;
-        border-bottom: 1px solid #34495e;
-        font-size: 1.1rem;
-        text-align: left;
-    }
-    
-    /* Mobile Hero */
-    .hero {
-        height: 70vh;
-        padding: 0 20px;
-    }
-    
-    .college-name-hero {
-        font-size: 2rem;
-        line-height: 1.2;
-    }
-    
-    .accreditation {
-        font-size: 1.4rem;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-    }
-    
-    .btn {
-        min-width: 200px;
-        padding: 14px 30px;
-        font-size: 1.1rem;
-    }
-    
-    /* Mobile Sections */
-    .section-title {
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    
-    .announcements-events,
-    .about,
-    .departments,
-    .placements,
-    .facilities,
-    .cells,
-    .events,
-    .contact {
-        padding: 60px 0;
-    }
-    
-    .announcements-grid,
-    .about-content,
-    .placement-content,
-    .contact-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .departments-grid,
-    .cells-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .department-card,
-    .cell-card {
-        padding: 1.5rem;
-    }
-    
-    /* Mobile Events Timeline */
-    .event-timeline-item {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: stretch;
-    }
-    
-    .event-date {
-        align-self: stretch;
-        text-align: center;
-    }
-    
-    .event-content {
-        padding: 1.5rem;
-    }
-    
-    /* Mobile Placements */
-    .recruiters-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.8rem;
-    }
-    
-    .recruiter-logo {
-        padding: 0.8rem;
-        font-size: 0.9rem;
-    }
-    
-    .placement-stats {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-    }
-    
-    .placement-stats .stat {
-        padding: 1rem;
-        background: var(--light-gray);
-        border-radius: 10px;
-    }
-    
-    /* Mobile Facilities */
-    .facility-slide img {
-        height: 250px;
-    }
-    
-    .facility-info {
-        padding: 1.5rem;
-    }
-    
-    .facility-info h3 {
-        font-size: 1.4rem;
-    }
-    
-    /* Mobile Contact */
-    .contact-item {
-        flex-direction: row;
-        align-items: flex-start;
-        text-align: left;
-        gap: 1rem;
-    }
-    
-    .contact-item i {
-        font-size: 1.5rem;
-        margin-top: 0.2rem;
-        min-width: 24px;
-    }
-    
-    /* Mobile Footer */
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        text-align: center;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    /* Larger college name on mobile */
-    .dhanalakshmi {
-      font-size: 2.6rem;
-    }
-}
-
-/* Small Mobile Styles */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    /* Small Mobile Header */
-    .dhanalakshmi {
-        font-size: 1.5rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-    }
-    
-    .college-type {
-        font-size: 1.3rem;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-    }
-
-    /* Keep 2 columns on very small phones but allow tighter min width */
-    .header-buttons {
-        grid-template-columns: repeat(2, minmax(120px, 1fr));
-        gap: 0.7rem 0.8rem;
-    }
-    
-    .college-location {
         font-size: 0.85rem;
         color: #666;
         margin: 0;
@@ -1685,7 +1651,7 @@ margin-top: 3rem;
         font-weight: 600;
     }
     
-    /* Small Mobile Hero */
+    /* Mobile Hero */
     .hero {
         height: 60vh;
         padding: 0 15px;
@@ -1710,7 +1676,7 @@ margin-top: 3rem;
         font-size: 1rem;
     }
     
-    /* Small Mobile Sections */
+    /* Mobile Sections */
     .section-title {
         font-size: 1.8rem;
         margin-bottom: 1.5rem;
@@ -1742,7 +1708,7 @@ margin-top: 3rem;
         font-size: 2.2rem;
     }
     
-    /* Small Mobile Grids */
+    /* Mobile Grids */
     .links-grid {
         grid-template-columns: 1fr;
         gap: 0.8rem;
@@ -1763,7 +1729,7 @@ margin-top: 3rem;
         font-size: 0.9rem;
     }
     
-    /* Small Mobile Events */
+    /* Mobile Events */
     .event-date {
         padding: 0.8rem;
         min-width: 100px;
@@ -1781,7 +1747,7 @@ margin-top: 3rem;
         font-size: 1.2rem;
     }
     
-    /* Small Mobile Facilities */
+    /* Mobile Facilities */
     .facility-slide img {
         height: 200px;
     }
@@ -1794,7 +1760,7 @@ margin-top: 3rem;
         font-size: 1.2rem;
     }
     
-    /* Small Mobile About */
+    /* Mobile About */
     .about-text h3 {
         font-size: 1.5rem;
     }
@@ -1824,7 +1790,7 @@ margin-top: 3rem;
         margin: 0.3rem 0;
     }
 
-    /* Small Mobile Placements */
+    /* Mobile Placements */
     .placement-stats .stat h3 {
         font-size: 2rem;
     }
@@ -1834,7 +1800,7 @@ margin-top: 3rem;
         font-size: 0.9rem;
     }
     
-    /* Small Mobile Contact */
+    /* Mobile Contact */
     .contact-item h4 {
         font-size: 1rem;
     }
@@ -1844,7 +1810,7 @@ margin-top: 3rem;
     }
 }
 
-/* Extra Small Mobile Styles */
+/* Small Mobile Styles */
 @media (max-width: 360px) {
     .college-name-hero {
         font-size: 1.4rem;

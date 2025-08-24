@@ -38,9 +38,16 @@ function initializeNavigation() {
             }
         });
         
-        // Close menu when clicking on a link
+        // Handle mobile dropdown menus
+        initializeMobileDropdowns();
+        
+        // Close menu when clicking on a link (only if it's not a dropdown parent)
         navLinks.forEach(link => {
-            link.addEventListener('click', closeMobileMenu);
+            link.addEventListener('click', (e) => {
+                if (!link.querySelector('.arrow')) {
+                    closeMobileMenu();
+                }
+            });
             // Optional: give menuitem semantics
             link.setAttribute('role', 'menuitem');
         });
@@ -63,6 +70,43 @@ function initializeNavigation() {
         // Initialize ARIA state
         hamburger.setAttribute('aria-expanded', 'false');
     }
+}
+
+// Initialize Mobile Dropdown Functionality
+function initializeMobileDropdowns() {
+    const dropdownLinks = document.querySelectorAll('.nav-menu li > a .arrow');
+    
+    dropdownLinks.forEach(arrow => {
+        const parentLink = arrow.parentElement;
+        const parentLi = parentLink.parentElement;
+        const submenu = parentLi.querySelector('.submenu, .sub-submenu');
+        
+        if (submenu) {
+            parentLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Toggle current submenu
+                submenu.classList.toggle('active');
+                arrow.style.transform = submenu.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+                
+                // Close other submenus at the same level
+                const siblings = parentLi.parentElement.children;
+                Array.from(siblings).forEach(sibling => {
+                    if (sibling !== parentLi) {
+                        const siblingSubmenu = sibling.querySelector('.submenu, .sub-submenu');
+                        const siblingArrow = sibling.querySelector('.arrow');
+                        if (siblingSubmenu) {
+                            siblingSubmenu.classList.remove('active');
+                            if (siblingArrow) {
+                                siblingArrow.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    }
+                });
+            });
+        }
+    });
 }
 
 function toggleMobileMenu() {
