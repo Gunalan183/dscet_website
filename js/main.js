@@ -4,6 +4,7 @@
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-menu a');
+let lastFocusedElement = null; // for restoring focus after closing mobile menu
 const scrollTopBtn = document.createElement('button');
 
 // Mobile Detection
@@ -29,10 +30,19 @@ document.addEventListener('DOMContentLoaded', function() {
 function initializeNavigation() {
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', toggleMobileMenu);
+        // Keyboard: Enter/Space to toggle
+        hamburger.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggleMobileMenu();
+            }
+        });
         
         // Close menu when clicking on a link
         navLinks.forEach(link => {
             link.addEventListener('click', closeMobileMenu);
+            // Optional: give menuitem semantics
+            link.setAttribute('role', 'menuitem');
         });
 
         // Close menu when clicking outside
@@ -41,6 +51,17 @@ function initializeNavigation() {
                 closeMobileMenu();
             }
         });
+
+        // Close with Escape key when menu is open
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                e.preventDefault();
+                closeMobileMenu();
+            }
+        });
+
+        // Initialize ARIA state
+        hamburger.setAttribute('aria-expanded', 'false');
     }
 }
 
@@ -519,27 +540,38 @@ function initializeViewportFix() {
 
 // Enhanced Mobile Navigation
 function toggleMobileMenu() {
+    if (!hamburger || !navMenu) return;
     const isActive = hamburger.classList.contains('active');
-    
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-    
-    // Prevent body scroll when menu is open
+
     if (!isActive) {
+        // Opening
+        lastFocusedElement = document.activeElement;
+        hamburger.classList.add('active');
+        navMenu.classList.add('active');
         document.body.style.overflow = 'hidden';
-        // Add backdrop
+        hamburger.setAttribute('aria-expanded', 'true');
         createBackdrop();
+        // Focus first link for accessibility
+        const firstLink = navMenu.querySelector('a');
+        if (firstLink) firstLink.focus();
     } else {
-        document.body.style.overflow = '';
-        removeBackdrop();
+        // Closing
+        closeMobileMenu();
     }
 }
 
 function closeMobileMenu() {
+    if (!hamburger || !navMenu) return;
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
     document.body.style.overflow = '';
+    hamburger.setAttribute('aria-expanded', 'false');
     removeBackdrop();
+    // Restore focus to the element that opened the menu
+    if (lastFocusedElement) {
+        lastFocusedElement.focus();
+        lastFocusedElement = null;
+    }
 }
 
 function createBackdrop() {
@@ -590,6 +622,8 @@ function initializeHeroSlider() {
         showSlide(0);
     }
 }
+
+ 
 
 function changeSlide(direction) {
     currentSlideIndex += direction;
