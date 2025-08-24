@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeFormValidation();
     initializeLazyLoading();
     initializeFacilitiesCarousel();
+    initializeCellsCarousel();
     initializeMobileFeatures();
     initializeTouchGestures();
     initializeViewportFix();
@@ -275,6 +276,54 @@ function showFacilitySlide(index) {
     facilitySlides.forEach(slide => slide.classList.remove('active'));
     if (facilitySlides[index]) {
         facilitySlides[index].classList.add('active');
+    }
+}
+
+// Cells Carousel
+let currentCellSlide = 0;
+
+function initializeCellsCarousel() {
+    const cellSlides = document.querySelectorAll('.cell-card');
+    
+    if (cellSlides.length > 0) {
+        showCellSlide(0);
+        
+        // Auto-slide every 4 seconds
+        setInterval(() => {
+            changeCellSlide(1);
+        }, 4000);
+    }
+}
+
+function changeCellSlide(direction) {
+    const cellSlides = document.querySelectorAll('.cell-card');
+    const indicators = document.querySelectorAll('.cells-indicators .indicator');
+    
+    cellSlides[currentCellSlide].classList.remove('active');
+    indicators[currentCellSlide].classList.remove('active');
+    
+    currentCellSlide += direction;
+    
+    if (currentCellSlide >= cellSlides.length) {
+        currentCellSlide = 0;
+    } else if (currentCellSlide < 0) {
+        currentCellSlide = cellSlides.length - 1;
+    }
+    
+    showCellSlide(currentCellSlide);
+}
+
+function showCellSlide(index) {
+    const cellSlides = document.querySelectorAll('.cell-card');
+    const indicators = document.querySelectorAll('.cells-indicators .indicator');
+    
+    cellSlides.forEach(slide => slide.classList.remove('active'));
+    indicators.forEach(indicator => indicator.classList.remove('active'));
+    
+    if (cellSlides[index]) {
+        cellSlides[index].classList.add('active');
+        indicators[index].classList.add('active');
+        currentCellSlide = index;
     }
 }
 
