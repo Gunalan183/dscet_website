@@ -154,7 +154,7 @@ body {
 .dhanalakshmi {
     display: block;
     color: navy;
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     line-height: 1.1;
@@ -1314,6 +1314,8 @@ margin-top: 3rem;
     
     .accreditation-logos {
         justify-self: center;
+        flex-direction: row;
+        gap: 1rem;
     }
     
     .header-buttons {
