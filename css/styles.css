@@ -1502,14 +1502,16 @@ margin-top: 3rem;
     
     /* Mobile Contact */
     .contact-item {
-        flex-direction: column;
-        text-align: center;
-        gap: 0.5rem;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1rem;
     }
     
     .contact-item i {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        margin-top: 0.2rem;
+        min-width: 24px;
     }
     
     /* Mobile Footer */
