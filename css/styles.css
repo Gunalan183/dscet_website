@@ -132,8 +132,8 @@ body {
 }
 
 .college-logo .logo-img {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
     object-fit: contain;
 }
 
@@ -181,7 +181,7 @@ body {
 }
 
 .accred-logo {
-    height: 50px;
+    height: 70px;
     width: auto;
     object-fit: contain;
     transition: transform 0.3s;
@@ -202,14 +202,18 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    border-radius: 25px;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
     text-decoration: none;
-    font-size: 0.85rem;
+    border-radius: 25px;
     font-weight: 600;
+    font-size: 0.9rem;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    min-width: 200px;
+    justify-content: center;
 }
 
 .counselling-btn {
@@ -233,13 +237,23 @@ body {
 }
 
 .tour-btn {
-    background: linear-gradient(135deg, var(--orange), #F59E0B);
+    background: linear-gradient(135deg, var(--orange), #E67E22);
     color: var(--white);
 }
 
 .tour-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.erp-btn {
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    color: var(--white);
+}
+
+.erp-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(142, 68, 173, 0.3);
 }
 
 .header-btn i {
@@ -1192,8 +1206,8 @@ body {
     }
     
     .college-logo .logo-img {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
     }
     
     .quick-links {
@@ -1417,7 +1431,26 @@ body {
     }
     
     .college-location {
+        font-size: 1rem;
+        color: #666;
+        margin: 0;
+    }
+
+    .college-accreditation {
+        margin-top: 15px;
+    }
+
+    .college-accreditation p {
         font-size: 0.9rem;
+        color: #555;
+        margin: 5px 0;
+        line-height: 1.4;
+        font-weight: 500;
+    }
+
+    .college-accreditation p:nth-child(2) {
+        color: #DC143C;
+        font-weight: 600;
     }
     
     /* Small Mobile Hero */
