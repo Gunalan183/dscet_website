@@ -1524,6 +1524,11 @@ margin-top: 3rem;
     .social-links {
         justify-content: center;
     }
+    
+    /* Larger college name on mobile */
+    .dhanalakshmi {
+      font-size: 2.6rem;
+    }
 }
 
 /* Small Mobile Styles */
@@ -1534,7 +1539,7 @@ margin-top: 3rem;
     
     /* Small Mobile Header */
     .dhanalakshmi {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
