@@ -31,15 +31,46 @@ body {
 
 /* Top Notification Bar */
 .top-bar {
-    background: var(--royal-blue);
-    color: var(--white);
-    padding: 10px 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #3b82f6);
+    color: white;
+    padding: 8px 0;
+    font-size: 14px;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: space-between;
     min-height: 45px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Social Media Icons */
+.social-media-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-left: 20px;
+    z-index: 10;
+}
+
+.social-icon {
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social-icon:hover {
+    color: #FFD700;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 .ticker-container {
