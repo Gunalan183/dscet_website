@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeAnimations();
     initializeFormValidation();
     initializeLazyLoading();
+    initializeFacilitiesCarousel();
     initializeMobileFeatures();
     initializeTouchGestures();
     initializeViewportFix();
@@ -232,12 +233,49 @@ function showNotification(message, type) {
     
     document.body.appendChild(notification);
     
-    // Auto remove after 5 seconds
     setTimeout(() => {
-        if (notification.parentElement) {
-            notification.remove();
-        }
+        notification.remove();
     }, 5000);
+}
+
+// Facilities Carousel
+let currentFacilitySlide = 0;
+
+function initializeFacilitiesCarousel() {
+    const facilitySlides = document.querySelectorAll('.facility-slide');
+    
+    if (facilitySlides.length > 0) {
+        showFacilitySlide(0);
+        
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            changeFacilitySlide(1);
+        }, 5000);
+    }
+}
+
+function changeFacilitySlide(direction) {
+    const facilitySlides = document.querySelectorAll('.facility-slide');
+    
+    facilitySlides[currentFacilitySlide].classList.remove('active');
+    
+    currentFacilitySlide += direction;
+    
+    if (currentFacilitySlide >= facilitySlides.length) {
+        currentFacilitySlide = 0;
+    } else if (currentFacilitySlide < 0) {
+        currentFacilitySlide = facilitySlides.length - 1;
+    }
+    
+    showFacilitySlide(currentFacilitySlide);
+}
+
+function showFacilitySlide(index) {
+    const facilitySlides = document.querySelectorAll('.facility-slide');
+    facilitySlides.forEach(slide => slide.classList.remove('active'));
+    if (facilitySlides[index]) {
+        facilitySlides[index].classList.add('active');
+    }
 }
 
 // Counter Animation
