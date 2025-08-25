@@ -699,6 +699,17 @@ p, .body-text {
         line-height: 1.5;
     }
     
+    /* Center quick links grid on mobile */
+    .quick-links-grid {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .quick-links-column {
+        align-items: center;
+    }
+    
     .social-links {
         justify-content: center;
         margin-top: 1rem;
