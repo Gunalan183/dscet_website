@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeTouchGestures();
     initializeViewportFix();
     initializeHeroSlider();
+    initializeScrollNavbar();
 });
 
 // Mobile Navigation Toggle
@@ -119,6 +120,40 @@ function toggleMobileMenu() {
 function closeMobileMenu() {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
+}
+
+// Scroll Navbar Functionality
+let lastScrollTop = 0;
+let scrollThreshold = 100;
+
+function initializeScrollNavbar() {
+    const navbar = document.querySelector('.main-nav');
+    if (!navbar) return;
+    
+    window.addEventListener('scroll', () => {
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Add scrolled class when past threshold
+        if (currentScrollTop > scrollThreshold) {
+            navbar.classList.add('scrolled');
+            
+            // Hide navbar when scrolling down, show when scrolling up
+            if (currentScrollTop > lastScrollTop && currentScrollTop > 200) {
+                // Scrolling down - hide navbar
+                navbar.classList.add('hidden');
+                navbar.classList.remove('visible');
+            } else if (currentScrollTop < lastScrollTop) {
+                // Scrolling up - show navbar
+                navbar.classList.remove('hidden');
+                navbar.classList.add('visible');
+            }
+        } else {
+            // At top of page - show navbar in original state
+            navbar.classList.remove('scrolled', 'hidden', 'visible');
+        }
+        
+        lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    });
 }
 
 // Scroll to Top Button

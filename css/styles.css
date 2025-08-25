@@ -316,6 +316,25 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(0);
+}
+
+/* Navbar scroll states */
+.main-nav.scrolled {
+    position: fixed;
+    top: 0;
+    background: rgba(17, 25, 40, 0.95);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.main-nav.hidden {
+    transform: translateY(-100%);
+}
+
+.main-nav.visible {
+    transform: translateY(0);
 }
 
 .nav-menu {
