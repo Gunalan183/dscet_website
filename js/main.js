@@ -7,9 +7,11 @@ const navLinks = document.querySelectorAll('.nav-menu a');
 let lastFocusedElement = null; // for restoring focus after closing mobile menu
 const scrollTopBtn = document.createElement('button');
 
-// Mobile Detection
+// Enhanced Mobile Detection
 const isMobile = () => window.innerWidth <= 768;
+const isTablet = () => window.innerWidth > 768 && window.innerWidth <= 1024;
 const isTouch = 'ontouchstart' in window;
+const hasHover = window.matchMedia('(hover: hover)').matches;
 
 // Initialize the website
 document.addEventListener('DOMContentLoaded', function() {
@@ -479,25 +481,42 @@ function initializeLoadingAnimation() {
     });
 }
 
-// Mobile-Specific Features
+// Enhanced Mobile-Specific Features
 function initializeMobileFeatures() {
-    // Add mobile-specific classes
+    // Add device-specific classes
     if (isMobile()) {
         document.body.classList.add('mobile-device');
+    }
+    
+    if (isTablet()) {
+        document.body.classList.add('tablet-device');
     }
     
     if (isTouch) {
         document.body.classList.add('touch-device');
     }
     
-    // Mobile menu auto-close on orientation change
+    if (!hasHover) {
+        document.body.classList.add('no-hover');
+    }
+    
+    // Enhanced orientation change handling
     window.addEventListener('orientationchange', () => {
         setTimeout(() => {
             closeMobileMenu();
+            // Recalculate viewport height
+            setViewportHeight();
             // Trigger resize to recalculate layouts
             window.dispatchEvent(new Event('resize'));
         }, 100);
     });
+    
+    // Handle resize events for responsive behavior
+    window.addEventListener('resize', debounce(() => {
+        if (!isMobile() && navMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    }, 250));
     
     // Prevent zoom on input focus (iOS)
     const inputs = document.querySelectorAll('input, textarea, select');

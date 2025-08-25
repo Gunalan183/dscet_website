@@ -1,0 +1,851 @@
+/* Enhanced Mobile-First Responsive Design for DSCET Website */
+
+/* CSS Custom Properties for Responsive Design */
+:root {
+    --mobile-padding: 15px;
+    --tablet-padding: 20px;
+    --desktop-padding: 30px;
+    --mobile-font-base: 14px;
+    --tablet-font-base: 16px;
+    --desktop-font-base: 16px;
+    --mobile-line-height: 1.4;
+    --desktop-line-height: 1.6;
+}
+
+/* Base Mobile-First Styles */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--mobile-font-base);
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Container Responsive Behavior */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--mobile-padding);
+}
+
+/* Typography Responsive Scaling */
+h1, .college-name {
+    font-size: clamp(1.5rem, 5vw, 3.5rem);
+    line-height: var(--mobile-line-height);
+}
+
+h2, .section-title {
+    font-size: clamp(1.3rem, 4vw, 2.5rem);
+    line-height: var(--mobile-line-height);
+}
+
+h3 {
+    font-size: clamp(1.1rem, 3vw, 1.8rem);
+    line-height: var(--mobile-line-height);
+}
+
+p, .body-text {
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    line-height: var(--mobile-line-height);
+}
+
+/* Enhanced Mobile Navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: min(320px, 85vw);
+        height: 100vh;
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        flex-direction: column;
+        padding: 80px 0 20px 0;
+        transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 9999;
+        overflow-y: auto;
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+    }
+    
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .nav-menu li a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+        border-radius: 0;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-menu li a:hover {
+        background: rgba(255, 255, 255, 0.15);
+        padding-left: 32px;
+    }
+    
+    /* Mobile Dropdown Styles */
+    .submenu {
+        position: static;
+        display: none;
+        background: rgba(0, 0, 0, 0.2);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 0;
+        backdrop-filter: none;
+        max-height: 300px;
+        overflow-y: auto;
+    }
+    
+    .submenu.active {
+        display: block;
+        animation: slideDown 0.3s ease;
+    }
+    
+    .submenu li a {
+        padding: 12px 40px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .sub-submenu {
+        background: rgba(0, 0, 0, 0.3);
+    }
+    
+    .sub-submenu li a {
+        padding: 10px 56px;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.8);
+    }
+    
+    /* Hamburger Animation */
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 10000;
+        position: relative;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    
+    .hamburger:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border-radius: 2px;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+/* Enhanced Mobile Header */
+@media (max-width: 768px) {
+    .top-bar {
+        padding: 10px 0;
+        flex-direction: column;
+        gap: 8px;
+        min-height: auto;
+    }
+    
+    .social-media-icons {
+        padding-left: 15px;
+        gap: 12px;
+    }
+    
+    .ticker-content {
+        font-size: 0.85rem;
+        animation-duration: 20s;
+        padding: 0 15px;
+    }
+    
+    .apply-now-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+        margin-right: 15px;
+    }
+    
+    .header {
+        padding: 20px 0;
+    }
+    
+    .header-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+        min-height: auto;
+    }
+    
+    .college-logo .logo-img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .college-info {
+        order: 2;
+    }
+    
+    .dhanalakshmi {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+        line-height: 1.1;
+    }
+    
+    .college-type {
+        font-size: clamp(1.2rem, 4vw, 1.6rem);
+        line-height: 1.2;
+    }
+    
+    .college-location {
+        font-size: clamp(0.8rem, 2.5vw, 1rem);
+        margin-top: 8px;
+    }
+    
+    .college-accreditation {
+        margin-top: 15px;
+    }
+    
+    .college-accreditation p {
+        font-size: clamp(0.75rem, 2vw, 0.9rem);
+        margin: 4px 0;
+        line-height: 1.3;
+    }
+    
+    .accreditation-logos {
+        order: 3;
+        flex-direction: row;
+        gap: 1rem;
+        margin-bottom: 0;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    
+    .accred-logo {
+        height: 50px;
+    }
+    
+    .header-buttons {
+        order: 4;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .header-btn {
+        width: 100%;
+        min-width: 0;
+        font-size: 0.8rem;
+        padding: 12px 8px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+    
+    .header-btn i {
+        font-size: 1.2rem;
+    }
+}
+
+/* Hero Slider Mobile Optimization */
+@media (max-width: 768px) {
+    .hero-slider {
+        height: 70vh;
+        min-height: 400px;
+    }
+    
+    .slide img {
+        object-position: center center;
+    }
+    
+    .slider-btn {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
+    .prev-btn {
+        left: 10px;
+    }
+    
+    .next-btn {
+        right: 10px;
+    }
+    
+    .slider-indicators {
+        bottom: 20px;
+        gap: 8px;
+    }
+    
+    .indicator {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* Mobile Content Sections */
+@media (max-width: 768px) {
+    .about,
+    .placements,
+    .facilities,
+    .cells,
+    .events,
+    .contact {
+        padding: 50px 0;
+    }
+    
+    .section-title {
+        margin-bottom: 2rem;
+    }
+    
+    .section-title::after {
+        width: 60px;
+        height: 3px;
+    }
+    
+    /* About Section Mobile */
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .about-text h3 {
+        font-size: clamp(1.3rem, 4vw, 1.8rem);
+        margin-bottom: 1rem;
+    }
+    
+    .about-text p {
+        margin-bottom: 1.2rem;
+        line-height: 1.6;
+    }
+    
+    .accreditation-highlights {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+    }
+    
+    .highlight-badge {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+    
+    .about-image {
+        order: -1;
+    }
+    
+    .about-image img {
+        border-radius: 8px;
+    }
+}
+
+/* Mobile Placements Section */
+@media (max-width: 768px) {
+    .placement-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    
+    .placement-stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .placement-stats .stat h3 {
+        font-size: clamp(2rem, 6vw, 2.5rem);
+    }
+    
+    .placement-stats .stat p {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    
+    .placement-stories h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .story {
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+    }
+    
+    .top-recruiters {
+        text-align: center;
+    }
+    
+    .top-recruiters h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .recruiters-img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Mobile Facilities Carousel */
+@media (max-width: 768px) {
+    .facility-slide img {
+        height: 250px;
+        border-radius: 12px;
+    }
+    
+    .facility-info {
+        padding: 30px 20px 20px;
+    }
+    
+    .facility-info h3 {
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+    
+    .facility-info p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .facilities-prev,
+    .facilities-next {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .facilities-prev i,
+    .facilities-next i {
+        font-size: 16px;
+    }
+}
+
+/* Mobile Cells Section */
+@media (max-width: 768px) {
+    .cell-card {
+        padding: 1.5rem;
+        margin: 0 15px;
+        min-height: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .cell-card i {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cell-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .cell-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .cells-prev,
+    .cells-next {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .cells-indicators {
+        margin-top: 25px;
+    }
+}
+
+/* Mobile Events Section */
+@media (max-width: 768px) {
+    .events-slider {
+        animation-duration: 30s;
+        gap: 1.5rem;
+    }
+    
+    .event-card {
+        min-width: 300px;
+        max-width: 300px;
+        margin: 0 10px;
+    }
+    
+    .event-header {
+        padding: 1.2rem;
+    }
+    
+    .date-day {
+        font-size: 1.8rem;
+    }
+    
+    .date-month {
+        font-size: 0.8rem;
+    }
+    
+    .event-category {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.75rem;
+    }
+    
+    .event-body {
+        padding: 1.5rem;
+    }
+    
+    .event-body h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .event-body p {
+        font-size: 0.9rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .event-details {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .event-footer {
+        padding: 0 1.5rem 1.5rem;
+    }
+}
+
+/* Mobile Contact Section */
+@media (max-width: 768px) {
+    .contact-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+    
+    .contact-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+    
+    .contact-item {
+        margin-bottom: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .contact-item i {
+        font-size: 1.3rem;
+        min-width: 20px;
+    }
+    
+    .contact-item h4 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .contact-item p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .contact-map h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}
+
+/* Mobile Footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .footer-section p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    html {
+        font-size: var(--tablet-font-base);
+    }
+    
+    .container {
+        padding: 0 var(--tablet-padding);
+    }
+    
+    .header-content {
+        grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "logo info buttons"
+            "accred accred accred";
+        gap: 1.5rem;
+    }
+    
+    .college-logo .logo-img {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .dhanalakshmi {
+        font-size: clamp(2.2rem, 4vw, 2.8rem);
+    }
+    
+    .college-type {
+        font-size: clamp(1.4rem, 3vw, 1.8rem);
+    }
+    
+    .header-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+    }
+    
+    .header-btn {
+        font-size: 0.85rem;
+        padding: 10px 15px;
+    }
+    
+    .accreditation-logos {
+        grid-area: accred;
+        justify-self: center;
+        flex-direction: row;
+        gap: 2rem;
+        margin-bottom: 0;
+    }
+    
+    .nav-menu a {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
+    
+    .about-content,
+    .placement-content,
+    .contact-content {
+        gap: 3rem;
+    }
+    
+    .placement-stats {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+    
+    .facility-slide img {
+        height: 350px;
+    }
+}
+
+/* Desktop Styles (1025px+) */
+@media (min-width: 1025px) {
+    html {
+        font-size: var(--desktop-font-base);
+    }
+    
+    .container {
+        padding: 0 var(--desktop-padding);
+    }
+    
+    p, .body-text {
+        line-height: var(--desktop-line-height);
+    }
+    
+    .nav-menu a {
+        padding: 15px 14px;
+        font-size: 0.9rem;
+    }
+    
+    .header-btn {
+        font-size: 0.9rem;
+        padding: 12px 20px;
+    }
+}
+
+/* Animations for Mobile */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        max-height: 300px;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Touch-Friendly Interactive Elements */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    .header-btn,
+    .link-item,
+    .department-card,
+    .cell-card {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .nav-menu a {
+        min-height: 48px;
+    }
+    
+    .slider-btn {
+        min-width: 48px;
+        min-height: 48px;
+    }
+    
+    .social-icon,
+    .social-links a {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* High DPI Display Optimization */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .logo-img,
+    .accred-logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .ticker-content {
+        animation: none;
+    }
+    
+    .events-slider {
+        animation: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .submenu,
+    .sub-submenu {
+        background: rgba(0, 0, 0, 0.9);
+        color: white;
+    }
+    
+    .submenu li a,
+    .sub-submenu li a {
+        color: rgba(255, 255, 255, 0.9);
+    }
+    
+    .submenu li a:hover,
+    .sub-submenu li a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .hamburger,
+    .nav-menu,
+    .slider-btn,
+    .slider-indicators,
+    .facilities-nav,
+    .cells-nav,
+    .whatsapp-float,
+    .scroll-top-btn {
+        display: none !important;
+    }
+    
+    .header,
+    .hero-slider {
+        break-inside: avoid;
+    }
+    
+    .section-title {
+        break-after: avoid;
+    }
+}
