@@ -350,10 +350,10 @@ function initializeFacilitiesCarousel() {
     if (facilitySlides.length > 0) {
         showFacilitySlide(0);
         
-        // Auto-slide every 5 seconds
+        // Auto-slide every 2 seconds
         setInterval(() => {
             changeFacilitySlide(1);
-        }, 5000);
+        }, 2000);
     }
 }
 
@@ -386,23 +386,76 @@ let currentCellSlide = 0;
 
 function initializeCellsCarousel() {
     const cellSlides = document.querySelectorAll('.cell-card');
+    const slider = document.querySelector('.cells-slider');
     
     if (cellSlides.length > 0) {
         showCellSlide(0);
         
-        // Auto-slide every 4 seconds
+        // Add touch/swipe support for mobile
+        if (slider) {
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
+            
+            slider.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            
+            slider.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                currentX = e.touches[0].clientX;
+            });
+            
+            slider.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                const diffX = startX - currentX;
+                const threshold = 50;
+                
+                if (Math.abs(diffX) > threshold) {
+                    if (diffX > 0) {
+                        changeCellSlide(1); // Swipe left - next slide
+                    } else {
+                        changeCellSlide(-1); // Swipe right - previous slide
+                    }
+                }
+            });
+            
+            // Handle scroll events for mobile
+            slider.addEventListener('scroll', () => {
+                if (window.innerWidth <= 768) {
+                    const slideWidth = slider.offsetWidth;
+                    const newIndex = Math.round(slider.scrollLeft / slideWidth);
+                    if (newIndex !== currentCellSlide) {
+                        currentCellSlide = newIndex;
+                        const indicators = document.querySelectorAll('.cells-indicators .indicator');
+                        indicators.forEach((indicator, index) => {
+                            indicator.classList.toggle('active', index === currentCellSlide);
+                        });
+                    }
+                }
+            });
+        }
+        
+        // Auto-slide every 3 seconds
         setInterval(() => {
             changeCellSlide(1);
-        }, 4000);
+        }, 3000);
     }
 }
 
 function changeCellSlide(direction) {
+    const slider = document.querySelector('.cells-slider');
     const cellSlides = document.querySelectorAll('.cell-card');
     const indicators = document.querySelectorAll('.cells-indicators .indicator');
     
-    cellSlides[currentCellSlide].classList.remove('active');
-    indicators[currentCellSlide].classList.remove('active');
+    // Remove active class from current slide and indicator
+    if (indicators[currentCellSlide]) {
+        indicators[currentCellSlide].classList.remove('active');
+    }
     
     currentCellSlide += direction;
     
@@ -412,7 +465,24 @@ function changeCellSlide(direction) {
         currentCellSlide = cellSlides.length - 1;
     }
     
-    showCellSlide(currentCellSlide);
+    // For mobile: scroll to the current slide
+    if (window.innerWidth <= 768 && slider) {
+        const slideWidth = slider.offsetWidth;
+        slider.scrollTo({
+            left: currentCellSlide * slideWidth,
+            behavior: 'smooth'
+        });
+    }
+    
+    // Update indicators
+    if (indicators[currentCellSlide]) {
+        indicators[currentCellSlide].classList.add('active');
+    }
+    
+    // For desktop: use the original showCellSlide function
+    if (window.innerWidth > 768) {
+        showCellSlide(currentCellSlide);
+    }
 }
 
 function showCellSlide(index) {

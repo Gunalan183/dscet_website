@@ -830,6 +830,10 @@ body {
     position: relative;
 }
 
+.facilities .container {
+    text-align: center;
+}
+
 .facilities-carousel {
     display: flex;
     overflow: hidden;
@@ -881,14 +885,14 @@ body {
 
 /* Facilities Navigation */
 .facilities-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
-    pointer-events: none;
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .facilities-prev,
