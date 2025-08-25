@@ -551,7 +551,7 @@ body {
 
 /* Announcements & Events */
 .announcements-events {
-    padding: 60px 0;
+    padding: 40px 0;
     background: var(--light-gray);
 }
 
@@ -666,8 +666,118 @@ body {
 
 /* About Section */
 .about {
-    padding: 100px 0;
+    padding: 60px 0 40px 0;
     background: var(--white);
+}
+
+/* Leadership Section */
+.leadership {
+    padding: 40px 0 60px 0;
+    background: var(--light-gray);
+    overflow: hidden;
+}
+
+.leadership-cards {
+    display: flex;
+    gap: 1.5rem;
+    animation: slideCards 15s linear infinite;
+    width: max-content;
+}
+
+.leadership-cards:hover {
+    animation-play-state: paused;
+}
+
+@keyframes slideCards {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.leadership-card {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    min-width: 300px;
+    max-width: 300px;
+    flex-shrink: 0;
+    position: relative;
+}
+
+.leadership-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+}
+
+.card-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--royal-blue), var(--crimson-red));
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.leadership-card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.card-content {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.card-content h3 {
+    color: var(--royal-blue);
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.4rem;
+}
+
+.card-content h4 {
+    color: var(--dark-gray);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+}
+
+.card-content p {
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.card-quote {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 0.8rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--royal-blue);
+    position: relative;
+}
+
+.card-quote i {
+    color: var(--royal-blue);
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+.card-quote span {
+    color: var(--dark-gray);
+    font-style: italic;
+    font-weight: 500;
 }
 
 .about-content {
@@ -713,7 +823,7 @@ body {
 
 /* Departments Section */
 .departments {
-    padding: 100px 0;
+    padding: 60px 0 40px 0;
     background: var(--light-gray);
 }
 
@@ -757,7 +867,7 @@ body {
 
 /* Placements Section */
 .placements {
-    padding: 100px 0;
+    padding: 40px 0 60px 0;
     background: var(--white);
 }
 
@@ -825,7 +935,7 @@ body {
 
 /* Facilities Section */
 .facilities {
-    padding: 80px 0;
+    padding: 40px 0 60px 0;
     background: #f8f9fa;
     position: relative;
 }
@@ -926,7 +1036,7 @@ body {
 
 /* Cells Section */
 .cells {
-padding: 100px 0;
+padding: 40px 0 60px 0;
 background: var(--white);
 }
 
@@ -1055,7 +1165,7 @@ margin-top: 3rem;
 
 /* Events Section */
 .events {
-    padding: 100px 0;
+    padding: 40px 0 60px 0;
     background: var(--light-gray);
     overflow: hidden;
 }
@@ -1082,7 +1192,7 @@ margin-top: 3rem;
         transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 }
 
@@ -1196,7 +1306,7 @@ margin-top: 3rem;
 
 /* Useful Links */
 .useful-links {
-    padding: 60px 0;
+    padding: 40px 0;
     background: var(--white);
 }
 
@@ -1226,7 +1336,7 @@ margin-top: 3rem;
 
 /* Contact Section */
 .contact {
-    padding: 100px 0;
+    padding: 60px 0 40px 0;
     background: var(--light-gray);
 }
 
