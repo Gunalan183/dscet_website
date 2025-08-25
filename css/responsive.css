@@ -59,6 +59,82 @@ p, .body-text {
 
 /* Enhanced Mobile Navigation */
 @media (max-width: 768px) {
+    .main-nav {
+        position: relative;
+        background: rgba(17, 25, 40, 0.9);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+    
+    .main-nav .container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 15px 20px;
+        position: relative;
+    }
+    
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 10001;
+        position: relative;
+        padding: 8px;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+        min-width: 44px;
+        min-height: 44px;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+    }
+    
+    .hamburger:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border-radius: 2px;
+    }
+    
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+    }
+    
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+    
+    /* Mobile backdrop */
+    .mobile-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    
+    .mobile-backdrop.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+    
     .nav-menu {
         position: fixed;
         top: 0;
@@ -69,10 +145,11 @@ p, .body-text {
         flex-direction: column;
         padding: 80px 0 20px 0;
         transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        z-index: 9999;
+        z-index: 10000;
         overflow-y: auto;
         box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
         backdrop-filter: blur(10px);
+        -webkit-overflow-scrolling: touch;
     }
     
     .nav-menu.active {
@@ -234,6 +311,7 @@ p, .body-text {
     .college-location {
         font-size: clamp(0.8rem, 2.5vw, 1rem);
         margin-top: 8px;
+        color: white;
     }
     
     .college-accreditation {
@@ -251,9 +329,11 @@ p, .body-text {
         flex-direction: row;
         gap: 1rem;
         margin-bottom: 0;
-        justify-content: center;
-        align-items: center;
-        display: flex;
+        justify-content: center !important;
+        align-items: center !important;
+        display: flex !important;
+        width: 100%;
+        text-align: center;
     }
     
     .accred-logo {

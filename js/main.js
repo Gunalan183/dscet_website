@@ -614,9 +614,12 @@ function toggleMobileMenu() {
         document.body.style.overflow = 'hidden';
         hamburger.setAttribute('aria-expanded', 'true');
         createBackdrop();
-        // Focus first link for accessibility
-        const firstLink = navMenu.querySelector('a');
-        if (firstLink) firstLink.focus();
+        
+        // Focus first link for accessibility with delay
+        setTimeout(() => {
+            const firstLink = navMenu.querySelector('a');
+            if (firstLink) firstLink.focus();
+        }, 100);
     } else {
         // Closing
         closeMobileMenu();
@@ -638,26 +641,19 @@ function closeMobileMenu() {
 }
 
 function createBackdrop() {
+    // Remove existing backdrop if any
+    const existingBackdrop = document.querySelector('.mobile-backdrop');
+    if (existingBackdrop) {
+        existingBackdrop.remove();
+    }
+    
     const backdrop = document.createElement('div');
     backdrop.className = 'mobile-backdrop';
-    backdrop.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: 999;
-        opacity: 0;
-        transition: opacity 0.3s;
-    `;
-    
     document.body.appendChild(backdrop);
     
-    // Fade in backdrop
-    setTimeout(() => {
-        backdrop.style.opacity = '1';
-    }, 10);
+    // Force reflow and add active class
+    backdrop.offsetHeight;
+    backdrop.classList.add('active');
     
     backdrop.addEventListener('click', closeMobileMenu);
 }
@@ -665,7 +661,7 @@ function createBackdrop() {
 function removeBackdrop() {
     const backdrop = document.querySelector('.mobile-backdrop');
     if (backdrop) {
-        backdrop.style.opacity = '0';
+        backdrop.classList.remove('active');
         setTimeout(() => backdrop.remove(), 300);
     }
 }
